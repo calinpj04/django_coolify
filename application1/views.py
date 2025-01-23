@@ -7,3 +7,6 @@ def home(request):
 
 def home2(request):
     return render(request, "home.html")
+
+def kofi(request):
+     print(request)
