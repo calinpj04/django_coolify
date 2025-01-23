@@ -13,4 +13,4 @@ def home2(request):
 @csrf_exempt
 def kofi(request):
      print(request)
-     return JsonResponse()
+     return JsonResponse({})
