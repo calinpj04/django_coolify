@@ -14,9 +14,9 @@ def home2(request):
 
 @csrf_exempt
 def kofi(request):   
-    form_data = json.loads(request.body)
+    form_data = json.loads(request.data)
     print(form_data)
-    
+
     webhook = SyncWebhook.from_url('https://discord.com/api/webhooks/1331777737479946290/QhAnInypymU_xMpNcXI124FHJ8iI_hKnBk7zarwcL1y3omGU8w6EDK1XRjjbUsh8brJj') # Initializing webhook
     webhook.send(content=form_data) # Executing webhook.
 
