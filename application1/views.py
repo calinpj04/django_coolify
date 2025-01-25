@@ -12,6 +12,9 @@ def home(request):
 def home2(request):
     return render(request, "home.html")
 
+def kofiemail(request):
+    return render(request, "KofiPurchaseEmail.html")
+
 @csrf_exempt
 def kofi(request):   
     form_data = request.POST['data']
