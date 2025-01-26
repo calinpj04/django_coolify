@@ -23,7 +23,9 @@ def kofiemail(request):
 @csrf_exempt
 def kofi(request):   
     form_data = request.POST['data']
-    if form_data["verification_token"] != "4afd662e-6787-4010-9783-4329d70a36f3":
+    cleaned_form_data = json.loads(form_data)
+    print(cleaned_form_data["verification_token"])
+    if cleaned_form_data["verification_token"] != "4afd662e-6787-4010-9783-4329d70a36f3":
         return ("Invalid token", 403)
     else:
         print("IS VAILD")
