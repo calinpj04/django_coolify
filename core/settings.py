@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ["localhost", "igs4ssw80gs0os0wo8o0k40g.webdev.envisionment.net"
 # Application definition
 
 INSTALLED_APPS = [
-    "tailwind",
+    "application1",
     "django_browser_reload",
     "django.contrib.admin",
     "django.contrib.auth",
