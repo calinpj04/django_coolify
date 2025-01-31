@@ -55,7 +55,7 @@ def get_all_songs_by_artist(artist_id, sp):
     return all_songs
 
 # Function to fetch top artists and their songs by genre
-def get_top_artists_and_songs_by_genre(request, genre, limit=100):
+def get_top_artists_and_songs_by_genre(request, genre, limit=50):
     # Get the access token
     token_info = sp_oauth.get_cached_token()
     if not token_info:
