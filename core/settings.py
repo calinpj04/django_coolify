@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 
 """
 Django settings for core project.
@@ -14,6 +15,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+# Load environment variables from .env file
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,10 +26,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-vza2$z%&86%vn*+dwg62zmy69b*-oxw8ui2jml8rnlkun&kgre"
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG") == "True"
 
 ALLOWED_HOSTS = ["localhost", "igs4ssw80gs0os0wo8o0k40g.webdev.envisionment.net"]
 
@@ -33,6 +37,7 @@ ALLOWED_HOSTS = ["localhost", "igs4ssw80gs0os0wo8o0k40g.webdev.envisionment.net"
 # Application definition
 
 INSTALLED_APPS = [
+    "music",
     "application1",
     "django_browser_reload",
     "django.contrib.admin",
@@ -83,9 +88,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': 'biNItoU6bkcVH7BN1LOYaxMpkOByUltP3bAObwXEmK8l3S1bFCbLaf0VVkaatZR4',
+        'PASSWORD': 'hfOFk3VnuykRStFJZ1xYOPUuLqxVVMPT5qZtbcAKSHNlZXMj4RAvwwwollnz8jWI',
         'HOST': '147.93.116.231',
-        'PORT': '3001'
+        'PORT': '3002'
     }
 }
 
@@ -138,3 +143,10 @@ WHITENOISE_USE_FINDERS = True
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CSRF_COOKIE_SECURE = False
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',  # In-memory cache
+        'TIMEOUT': 3600,  # Cache timeout in seconds (1 hour)
+    }
+}

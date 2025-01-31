@@ -10,3 +10,5 @@ discord
 discord.py
 requests
 psycopg2-binary
+spotipy
+python-dotenv
