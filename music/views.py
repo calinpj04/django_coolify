@@ -14,7 +14,7 @@ CLIENT_SECRET = os.getenv('SPOTIFY_CLIENT_SECRET')
 REDIRECT_URI = os.getenv('SPOTIFY_REDIRECT_URI')
 
 # Authenticate and connect to Spotify API
-sp_oauth = SpotifyOAuth(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, redirect_uri=REDIRECT_URI, scope='user-top-read')
+sp_oauth = SpotifyOAuth(client_id='a2c3e831b9ab494999df8a96f4eda87c', client_secret='6d1aad7eeef4453e8f7695de2a433be5', redirect_uri='http://igs4ssw80gs0os0wo8o0k40g.webdev.envisionment.net/callback/', scope='user-top-read')
 
 # Function to handle rate limits
 def handle_rate_limit():
