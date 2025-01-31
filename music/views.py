@@ -8,11 +8,6 @@ from spotipy.oauth2 import SpotifyOAuth
 from spotipy.exceptions import SpotifyException
 from django.core.cache import cache
 
-# Replace with your own Spotify credentials
-CLIENT_ID = os.getenv('SPOTIFY_CLIENT_ID')
-CLIENT_SECRET = os.getenv('SPOTIFY_CLIENT_SECRET')
-REDIRECT_URI = os.getenv('SPOTIFY_REDIRECT_URI')
-
 # Authenticate and connect to Spotify API
 sp_oauth = SpotifyOAuth(client_id='a2c3e831b9ab494999df8a96f4eda87c', client_secret='6d1aad7eeef4453e8f7695de2a433be5', redirect_uri='http://igs4ssw80gs0os0wo8o0k40g.webdev.envisionment.net/callback/', scope='user-top-read')
 
@@ -83,6 +78,7 @@ def get_top_artists_and_songs_by_genre(request, genre, limit=50):
         cache.set(f'{genre}_top_songs', all_artist_songs, timeout=3600)
 
     except SpotifyException as e:
+        print("EXCEPTION", e)
         handle_rate_limit()
         return JsonResponse({'error': str(e)}, status=500)
 
@@ -108,6 +104,7 @@ def get_track_data(request, track_id):
         }
         return JsonResponse(track_data)
     except SpotifyException as e:
+        print("EXCEPTION", e)
         handle_rate_limit()
         return JsonResponse({'error': str(e)}, status=500)
 
